@@ -1,0 +1,6 @@
+# SPA Routing - redirect all frontend routes to index.html
+/*    /index.html   200
+
+# API Proxy - match development behavior in production (optional, if using separate domains)
+# Replace with actual backend URL if needed, or leave for relative path handling
+/api/*  :backend_url/api/:splat  200!

@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  /* Ultra-Premium Admin Palette */
+  --color-brand: hsl(250 100% 60%);        /* Hyper-Indigo */
+  --color-brand-faint: hsl(250 100% 98%);
+  --color-ink: hsl(230 40% 8%);           /* Deep Midnight */
+  --color-ink-faint: hsl(230 15% 45%);     /* Slate Gray */
+  --color-page: hsl(230 20% 98%);         /* Light Gray Background */
+  --color-surface: hsl(0 0% 100%);
+  --color-border: hsl(230 15% 92%);
+  
+  /* Modern Typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Outfit", sans-serif;
+
+  /* Sophisticated Component Tokens */
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2.5rem;
+  
+  --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  .ql-container { @apply !border-none; }
+  .ql-editor { @apply p-8 text-base text-ink leading-relaxed min-h-[400px]; }
+
+  body {
+    @apply bg-page text-ink selection:bg-brand/10 selection:text-brand;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold tracking-tight text-ink;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+  }
+
+  .btn-primary {
+    @apply bg-ink text-white px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[10px] 
+           hover:bg-brand hover:shadow-xl hover:shadow-brand/20 active:scale-[0.98] transition-all duration-300 disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply bg-white border border-border text-ink px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[10px]
+           hover:bg-slate-50 hover:border-ink/10 active:scale-[0.98] transition-all duration-300;
+  }
+
+  .admin-card {
+    @apply bg-white border border-border/60 rounded-[1.5rem] p-6 shadow-premium transition-all duration-300;
+  }
+
+  .input-field {
+    @apply bg-white border border-border px-5 py-3.5 rounded-xl outline-none 
+           focus:border-brand focus:ring-4 focus:ring-brand/5 transition-all duration-300 w-full;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-ink-faint font-semibold text-sm tracking-tight transition-all duration-200
+           hover:bg-brand/5 hover:text-brand active:scale-[0.98];
+  }
+
+  .sidebar-link-active {
+    @apply bg-brand/10 text-brand;
+  }
+}
+
+/* Premium Admin Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+}
