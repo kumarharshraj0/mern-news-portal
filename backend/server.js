@@ -72,6 +72,10 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
+
+// Health check
+app.get('/api/health', (req, res) => res.json({ status: 'up', timestamp: new Date() }));
+
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/news", newsRoutes);
